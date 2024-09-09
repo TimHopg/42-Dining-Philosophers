@@ -1,0 +1,8 @@
+*.d
+*.o
+obj
+philo
+!/philo/
+!philo.c
+!philo.h
+*test*
