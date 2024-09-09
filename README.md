@@ -34,7 +34,7 @@ Run `make` from within the directory.
 
 `number_of_philosophers` - Any number between `1` and `200`.
 
-`time_to_die` - The time in milliseconds for a philosopher to die since the beginning of their last meal. Must be `< 60`.
+`time_to_die` - The time in milliseconds for a philosopher to die since the beginning of their last meal. Must be `> 60`.
 
 `time_to_eat` - The time in milliseconds that it takes for each philosopher to finish their meal.
 
@@ -43,6 +43,7 @@ Run `make` from within the directory.
 `number_of_required_meals` is optional.
 
 ## Implementation
+
 Because performance was paramount for this project and input limits were known, implementation was conducted entirely on the stack (excluding standard mutex implementation).
 
 ## Resources
