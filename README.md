@@ -24,6 +24,8 @@ https://github.com/TimHopg/Dining-Philosophers.git
 
 Run `make` from within the directory.
 
+`make clean` will remove object files.
+
 `make fclean` will remove program and object files.
 
 ## Usage
@@ -31,6 +33,8 @@ Run `make` from within the directory.
 ```shell
 ./philo [number_of_philos] [time_to_die] [time_to_eat] [time_to_sleep] [number_of_required_meals]
 ```
+
+`philo` takes 4 mandatory arguments and one optional.
 
 `number_of_philosophers` - Any number between `1` and `200`.
 
@@ -44,6 +48,23 @@ Run `make` from within the directory.
 
 ## Implementation
 
-Because performance was paramount for this project and input limits were known, implementation was conducted entirely on the stack (excluding standard mutex implementation).
+Because performance was paramount for this project and input limits were known, the program is implemented entirely on the stack (excluding standard mutex implementation which creates some heap allocation by default).
+
+This means that margins of error could be kept lower.
+
+Each philosopher around the table is a thread and one additional thread, the monitor, oversees the operations.
+
+Each fork is a mutex itself (rather than protecting a variable which represents the fork).
+
+To help mitigate deadlocks, odd number philosophers always take the fork on their left first and even philosophers always take the fork on their right.
+
+Data races were avoided by ensuring any variables that are accessed by more than one thread are protected by a mutex.
 
 ## Resources
+
+- [Code(quoi)](https://www.codequoi.com/en/)
+- [YouTube: CodeVault Threads Playlist](https://www.youtube.com/watch?v=d9s_d28yJq0&list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2)
+- [Medium: Oceano](https://medium.com/@jalal92/the-dining-philosophers-7157cc05315)
+- [YouTube: Jamshidbek Ergashev](https://www.youtube.com/watch?v=UGQsvVKwe90)
+- [Tester: Socrates](https://github.com/nesvoboda/socrates)
+- [Visualiser](https://nafuka11.github.io/philosophers-visualizer/)
