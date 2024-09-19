@@ -1,5 +1,7 @@
 # Dining Philosophers
 
+![philosophers grade](./philosophers_grade.png)
+
 ## Table of Contents
 
 - [Introduction](#introduction)
