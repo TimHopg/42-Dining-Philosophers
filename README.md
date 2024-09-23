@@ -62,6 +62,10 @@ To help mitigate deadlocks, odd number philosophers always take the fork on thei
 
 Data races were avoided by ensuring any variables that are accessed by more than one thread are protected by a mutex.
 
+### Envp
+
+Environment pointer. The third argument to `main()` after `argc` and `argv`. `envp` points to the environment variables of the current user. This is a null-terminated array of null-terminated strings.
+
 ## Resources
 
 - [Code(quoi)](https://www.codequoi.com/en/)
